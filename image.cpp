@@ -106,12 +106,7 @@ Point2f ransac(const vector<Point2f> Points) {
 	return res;
 }
 
-inline float randFloat2(const int LO, const int HI) {
-	return LO + static_cast <float> (rand()) /(static_cast <float> (RAND_MAX/(HI-LO)));
-}
-
-float randFloat(float a, float b)
-{
+float randFloat(float a, float b) {
     return ((b - a) * ((float)rand() / RAND_MAX)) + a;
 }
 
