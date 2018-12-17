@@ -246,6 +246,7 @@ int main()
     }
     
     // imshow("I1I2", Kb) ;
+    imwrite("results/threeImagesHomography.JPG", Kb);
 
     // waitKey(0);
 

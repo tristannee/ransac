@@ -461,6 +461,7 @@ Mat testRansac() {
     createLine(plotImg, Point(minX-50, getY(modelM, modelC, minX-50)),
                Point(maxX+50, getY(modelM, modelC, maxX+50)));
     // imshow(plot, plotImg);
+    imwrite("results/meanLine.JPG", plotImg);
     return plotImg;
 }
 
@@ -516,7 +517,7 @@ Mat getPano() {
     Stitcher::Status status = stitcher->stitch(imgs, pano);
     if (status != Stitcher::OK)
         cout << "Couldn't stitch images\n";
-    imwrite("finalPano.JPG", pano);
+    imwrite("results/finalPano.JPG", pano);
     // imshow("Pano", pano);
     // waitKey();
     // END PART 2
