@@ -52,8 +52,17 @@ public:
 	}
 };
 
+Mat getPano();
+
+void computeA(Mat &A, vector<Point2f> &obj, vector<Point2f> &scene, int a, int b, int c, int d);
+
+Mat ransacGeneral(vector<Point2f> &obj, vector<Point2f> &scene);
+
+Mat ransacGeneralAlternative(vector<Point2f> &obj, vector<Point2f> &scene);
+
 Point2f ransac(const vector<Point2f> Points);
-void testRansac();
+
+Mat testRansac();
 
 // Correlation
 double NCC(const Image<float>& I1,Point m1,const Image<float>& I2,Point m2,int n);
