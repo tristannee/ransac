@@ -14,8 +14,8 @@ using namespace cv;
 
 int main()
 {
-	Image<uchar> I1 = Image<uchar>(imread("pano1/image0006.jpg", CV_LOAD_IMAGE_GRAYSCALE));
-	Image<uchar> I2 = Image<uchar>(imread("pano1/image0007.jpg", CV_LOAD_IMAGE_GRAYSCALE));
+	Image<uchar> I1 = Image<uchar>(imread("threeImages/image0006.jpg", CV_LOAD_IMAGE_GRAYSCALE));
+	Image<uchar> I2 = Image<uchar>(imread("threeImages/image0007.jpg", CV_LOAD_IMAGE_GRAYSCALE));
 	
 	// namedWindow("I1", 1);
 	// namedWindow("I2", 1);
@@ -130,7 +130,7 @@ int main()
     // imshow("I1I2", K) ;
     
     
-    Image<uchar> I3 = Image<uchar>(imread("pano1/image0008.jpg", CV_LOAD_IMAGE_GRAYSCALE));
+    Image<uchar> I3 = Image<uchar>(imread("threeImages/image0008.jpg", CV_LOAD_IMAGE_GRAYSCALE));
     
     //vector<KeyPoint> m1, m2;
     // ...

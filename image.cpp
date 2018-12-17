@@ -472,19 +472,25 @@ void preprocess() {
     int panoEnd = 60; // Actual end is 60
 
     for (int i = panoStart; i <= panoEnd - 3; i+=3) {
-     vector<Mat> tempPanos;
-     Mat img1 = imread("pano2/IMG_00" + to_string(i) + ".JPG");
-     Mat img2 = imread("pano2/IMG_00" + to_string(i+1) + ".JPG");
-     Mat img3 = imread("pano2/IMG_00" + to_string(i+2) + ".JPG");
-     tempPanos.push_back(img1);
-     tempPanos.push_back(img2);
-     tempPanos.push_back(img3);
-     Mat pano;     
-     Ptr<Stitcher> stitcher = Stitcher::create(mode, true); 
-     Stitcher::Status status = stitcher->stitch(tempPanos, pano);
-     if (status != Stitcher::OK)
-         cout << "Couldn't stitch images\n";
-     imwrite("stitched/STITCHED_00" + to_string(i) + ".JPG", pano);
+        vector<Mat> tempPanos;
+        Mat img1 = imread("pano/IMG_00" + to_string(i) + ".JPG");
+        Mat img2 = imread("pano/IMG_00" + to_string(i+1) + ".JPG");
+        Mat img3 = imread("pano/IMG_00" + to_string(i+2) + ".JPG");
+        tempPanos.push_back(img1);
+        tempPanos.push_back(img2);
+        tempPanos.push_back(img3);
+        if (i == 56) {
+            Mat img4 = imread("pano/IMG_0059.JPG");
+            Mat img5 = imread("pano/IMG_0060.JPG");
+            tempPanos.push_back(img4);
+            tempPanos.push_back(img5);
+        }
+        Mat pano;     
+        Ptr<Stitcher> stitcher = Stitcher::create(mode, true); 
+        Stitcher::Status status = stitcher->stitch(tempPanos, pano);
+        if (status != Stitcher::OK)
+            cout << "Couldn't stitch images\n";
+        imwrite("stitched/STITCHED_00" + to_string(i) + ".JPG", pano);
     }
 }
 
