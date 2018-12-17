@@ -517,7 +517,7 @@ Mat getPano() {
     Stitcher::Status status = stitcher->stitch(imgs, pano);
     if (status != Stitcher::OK)
         cout << "Couldn't stitch images\n";
-    imwrite("results/finalPano.JPG", pano);
+    imwrite("results/panorama.JPG", pano);
     // imshow("Pano", pano);
     // waitKey();
     // END PART 2
