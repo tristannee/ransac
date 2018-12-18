@@ -501,22 +501,12 @@ Mat getPano() {
     int panoStart = 26; // Actual start is 26
     int panoEnd = 60; // Actual end is 60
 
-    // preprocess();
+    preprocess();
 
-    // For some reason, the preprocessing and the stitching of the 
-    // preprocessed images can't be run at the same time.
-    // So first, comment everything in the PART2 section and run
-    // the homographie file, then uncomment it, and comment the 
-    // call to the preprocess().
-
-    // PART 2
     for (int i = panoStart; i <= panoEnd - 6; i+=3) {
         Mat img = imread("stitched/STITCHED_00" + to_string(i) + ".JPG");
         imgs.push_back(img);
     }
-
-    // imshow("lastImg", imgs.at(imgs.size()-1));
-    // waitKey();
 
     Mat pano;
     Ptr<Stitcher> stitcher = Stitcher::create(mode, false);
@@ -524,9 +514,6 @@ Mat getPano() {
     if (status != Stitcher::OK)
         cout << "Couldn't stitch images\n";
     imwrite("results/panorama.JPG", pano);
-    // imshow("Pano", pano);
-    // waitKey();
-    // END PART 2
 
     return pano;
 }
